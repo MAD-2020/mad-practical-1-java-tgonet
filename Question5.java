@@ -26,7 +26,13 @@ public class Question5
      * Hint: Use a loop to get input. Use another 2 loops to find the mode
      */
      
-    Scanner in = new Scanner(System.in);
-    
+   Scanner in = new Scanner(System.in);
+    int repeat = in.nextInt();
+    ArrayList<Integer> list = new ArrayList<>();
+    while(repeat != 0){
+      int input = in.nextInt();
+      list.add(input);
+      repeat --;
+    } 
   }
 }
