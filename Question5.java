@@ -25,7 +25,7 @@ public class Question5
      *     2
      * Hint: Use a loop to get input. Use another 2 loops to find the mode
      */
-     
+    //method 1
     Scanner in = new Scanner(System.in);
     int repeat = in.nextInt();
     ArrayList<Integer> inputlist = new ArrayList<>();
@@ -74,6 +74,27 @@ public class Question5
      
     }
     System.out.println(distinctlist.get(position));
+    
+    //method 2
+    Scanner in = new Scanner(System.in);
+    int repeat = in.nextInt();
+    ArrayList<Integer> inputlist = new ArrayList<>();
+    ArrayList<Integer> distinctlist = new ArrayList<>();
+    ArrayList<Integer> countlist = new ArrayList<>();
+    while(repeat != 0){
+      int input = in.nextInt();
+      inputlist.add(input);
+      repeat --;
+      if(!distinctlist.contains(input)){
+        distinctlist.add(input);
+      } 
+    }   
+    Collections.sort(inputlist);
+    for(int i : distinctlist){
+      countlist.add(Collections.frequency(inputlist, i));
+    }
+   int position = countlist.indexOf(Collections.max(countlist));
+   System.out.println(distinctlist.get(position));
     } 
   }
 }
