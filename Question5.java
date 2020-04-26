@@ -28,23 +28,27 @@ public class Question5
      */
     Scanner in = new Scanner(System.in);
     int repeat = in.nextInt();
-    ArrayList<Integer> inputlist = new ArrayList<>();
     ArrayList<Integer> distinctlist = new ArrayList<>();
     ArrayList<Integer> countlist = new ArrayList<>();
     while(repeat != 0){
       int input = in.nextInt();
-      inputlist.add(input);
       repeat --;
-      if(!distinctlist.contains(input)){
-        distinctlist.add(input);
+      if(distinctlist.contains(input)){
+        countlist.set(distinctlist.indexOf(input),countlist.get(distinctlist.indexOf(input))+1);
       } 
+      else{
+          distinctlist.add(input);
+          countlist.add(1);
+      }
     }   
-    Collections.sort(inputlist);
-    for(int i : distinctlist){
-      countlist.add(Collections.frequency(inputlist, i));
+    int max = 0;
+    for(int i : countlist){
+      if(i > max){
+        max = i;
+      }
     }
-   int position = countlist.indexOf(Collections.max(countlist));
-   System.out.println(distinctlist.get(position));
+    int position = countlist.indexOf(max);
+    System.out.println(distinctlist.get(position));
     } 
   }
 }
